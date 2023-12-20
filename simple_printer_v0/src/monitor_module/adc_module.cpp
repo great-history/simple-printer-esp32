@@ -1,13 +1,15 @@
-#include "config_setup.h"
+// #include "em_config.h"
 #include "adc_module.h"
 
-void adc_init() {
+void adc_init()
+{
   pinMode(PIN_ADC_EN, OUTPUT);
   analogReadResolution(BATTERY_ADC_BIT);
   digitalWrite(PIN_ADC_EN, HIGH);
 }
 
-void adc_test() {
+void adc_test()
+{
   // read the analog / millivolts value for pin 2:
   int analogValue = analogRead(PIN_BATTERY_ADC);
   int analogVolts = analogReadMilliVolts(PIN_BATTERY_ADC);
@@ -21,7 +23,8 @@ void adc_test() {
  * 
  * @return int 
  */
-int get_adc_volts(){
+int get_adc_volts()
+{
     // int analogValue = analogRead(PIN_BATTERY_ADC);
     // Serial.printf("ADC analog value = %d volts = %d\n",analogValue,analogValue*2.6/4095.0);
     int analogVolts = analogReadMilliVolts(PIN_BATTERY_ADC);
@@ -77,7 +80,8 @@ float em_temp_calculate(float Rt)
  * 
  * @return float 
  */
-float get_adc_temperatrue(){
+float get_adc_temperatrue()
+{
   float temp = 0.0f;
   float Rt=0;
   float vol=0;
@@ -94,7 +98,8 @@ float get_adc_temperatrue(){
   return temp;
 }
 
-void em_adc_test(){
+void em_adc_test()
+{
   float Rt=0;
   float vol=3.0f;
   Rt=(vol*10000)/(3.3-vol);

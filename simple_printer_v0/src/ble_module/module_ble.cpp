@@ -10,6 +10,7 @@ void init_queue()
 
 /**
  * @brief 写入一行数据
+ *
  * @param pdata
  * @param length
  */
@@ -37,6 +38,7 @@ void write_to_printbuffer(uint8_t *pdata, size_t length)
 
 /**
  * @brief 读取一行数据
+ *
  * @return uint8_t*
  */
 uint8_t *read_to_printer()
@@ -63,6 +65,7 @@ uint8_t *read_to_printer()
 
 /**
  * @brief 清空接收缓存
+ *
  */
 void clean_printbuffer()
 {

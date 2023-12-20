@@ -1,7 +1,10 @@
 #ifndef __MODULE_KEY_H_
 #define __MODULE_KEY_H_
 
-#include "config_setup.h"
+// #include "em_config.h"
+#include <Arduino.h>
+//按键引脚
+#define PIN_KEY 5  //34 35 36 39仅可以作为输入INPUT,不支持INPUT_PULLUP
 
 #define BTN_NAME_MAX  32     //名字最大为32字节
 
@@ -86,10 +89,10 @@ void Button_Create(const char *name,
                   uint8_t(*read_btn_level)(void),
                   uint8_t btn_trigger_level);
                   
-void Button_Attach(Button_t *btn,Button_Event btn_event,Button_CallBack btn_callback);                     
-void Button_Cycle_Process(Button_t *btn);                  
+void Button_Attach(Button_t *btn,Button_Event btn_event,Button_CallBack btn_callback);   
+void Button_Cycle_Process(Button_t *btn);   
 void Button_Process(void);
-void Button_Delete(Button_t *btn);
+void Button_Delete(Button_t *btn);   
 void Search_Button(void);     
 
 void Get_Button_EventInfo(Button_t *btn);

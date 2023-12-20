@@ -1,6 +1,7 @@
 #include "module_printer.h"
 
 float addTime[6] = {0};
+
 // 热密度
 uint8_t heat_density = 64;
 
@@ -87,7 +88,7 @@ void send_one_line_data(uint8_t *data)
     digitalWrite(PIN_LAT, LOW);
     us_delay(LAT_TIME);
     digitalWrite(PIN_LAT, HIGH);
-    }
+}
 
 /**
  * @brief 通道打印运行
@@ -205,5 +206,5 @@ void init_printer()
     pinMode(PIN_VHEN, OUTPUT);
     digitalWrite(PIN_VHEN, LOW);
 
-   init_spi();
+    init_spi();
 }

@@ -25,6 +25,7 @@ A- A B- B
 0  1 0  0
 */
 uint8_t motor_pos = 0;
+
 uint8_t motor_table[8][4] =
     {
         {0, 1, 1, 0},
@@ -35,8 +36,8 @@ uint8_t motor_table[8][4] =
         {0, 0, 0, 1},
         {0, 1, 0, 1},
         {0, 1, 0, 0}};
-Ticker timer_motor;
 
+Ticker timer_motor;
 
 void timer_motor_callbackfun()
 {
@@ -53,7 +54,8 @@ void timer_motor_callbackfun()
 
 void motor_start()
 {
-    if (timer_motor.active() == false){
+    if (timer_motor.active() == false)
+    {
         digitalWrite(PIN_VHEN, HIGH);
         timer_motor.attach_ms(2, timer_motor_callbackfun);
     }

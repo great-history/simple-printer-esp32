@@ -1,9 +1,13 @@
+/**
+ * @File Name: em_task.cpp
+ * @brief  how each module connected to perform a single task
+ * @Version : 1.0
+ */
 #include "device_task.h"
 
 // ************************************************** task ************************************************** //
 /**
  * @brief 处理上报相关事件
- *
  */
 void run_report()
 {
@@ -27,7 +31,6 @@ void run_report()
 
 /**
  * @brief 处理打印相关事件
- *
  */
 void run_printer()
 {
@@ -88,7 +91,8 @@ void task_button(void *pvParameters)
     }
 }
 
-void printer_run(){
+void printer_run()
+{
     for (;;) // A Task shall never return or exit.
     {
         run_printer();
@@ -104,7 +108,7 @@ void init_task()
 {
     Serial.begin(115200);
     Serial.print("init_task\n");
-    Serial.print("--mini printer V1.0.3--\n");
+    Serial.print("--simple printer V0--\n");
     init_device_state();
     init_timer();
     init_hal();

@@ -1,6 +1,7 @@
 #ifndef __TIMER_MODULE_H_
 #define __TIMER_MODULE_H_
 
+#include <Arduino.h>
 
 void init_timer();
 bool get_state_timeout();

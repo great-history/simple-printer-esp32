@@ -1,4 +1,5 @@
 #include "module_monitor.h"
+// #include "em_adc.h"
 
 int freq = 2000;    //设置频率2000kHz
 int channel = 0;    //通道号，取值0 ~ 15
@@ -21,14 +22,16 @@ void read_temperature()
 {
     float temperatrue = get_adc_temperatrue();
     Serial.printf("temperature = %f\n",temperatrue);
-    if(temperatrue >= EPISON){
+    if(temperatrue >= EPISON)
+    {
         get_device_state()->temperature = temperatrue;
     }else{
         get_device_state()->temperature = 0;
     }
 }
 
-void run_beep(beep_type_e type){
+void run_beep(beep_type_e type)
+{
 #ifdef BEEP_MODE
     switch (type)
     {
@@ -61,7 +64,8 @@ void run_beep(beep_type_e type){
 #endif
 }
 
-void run_led(led_type_e type){
+void run_led(led_type_e type)
+{
     switch (type)
     {
     case LED_CONNECT:
@@ -101,10 +105,12 @@ void ARDUINO_ISR_ATTR paper_isr()
 
 void read_paper_statue()
 {
-    if(digitalRead(PIN_PAPER) == PAPER_STATUS_NORMAL){
+    if(digitalRead(PIN_PAPER) == PAPER_STATUS_NORMAL)
+    {
         get_device_state()->paper_state = PAPER_STATUS_NORMAL;
         attachInterrupt(PIN_PAPER, paper_isr, RISING);
-    }else{
+    }else
+    {
         get_device_state()->paper_state = PAPER_STATUS_LACK;
     }
     Serial.printf("paper_state = %d  %d\n",get_device_state()->paper_state,digitalRead(PIN_PAPER));

@@ -1,7 +1,7 @@
-#ifndef _EM_QUEUE_H_
-#define _EM_QUEUE_H_
+#ifndef __MODULE_QUEUE_H_
+#define __MODULE_QUEUE_H_
 
-#include "config_setup.h"
+#include <Arduino.h>
 
 //一行最大byte
 #define MAX_ONELINE_BYTE 48

@@ -1,6 +1,5 @@
 #include <Ticker.h>
 
-#include "config_setup.h"
 #include "timer_module.h"
 
 Ticker read_state_timer;
@@ -42,17 +41,13 @@ static void printer_timeout_callbackfun(){
   printer_timeout = true;
 }
 
-/**
- * @brief Get the printer timeout status object
- * @return true 
- * @return false 
- */
 bool get_printer_timeout_status(){
   return printer_timeout;
 }
 
 /**
  * @brief 开启打印超时计时器
+ * 
  */
 void open_printer_timeout_timer(){
   printer_timeout = false;
@@ -61,6 +56,7 @@ void open_printer_timeout_timer(){
 
 /**
  * @brief 关闭打印超时计时器
+ * 
  */
 void close_printer_timeout_timer(){
   if(printer_timer.active())
